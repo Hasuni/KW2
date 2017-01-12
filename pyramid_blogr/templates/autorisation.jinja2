@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html lang="${request.locale_name}">
+<head>
+<meta charset="UTF-8">
+<title>Auto</title>
+<link rel="stylesheet" type="text/css" media="all" href="static/style.css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,300,700,700italic|Open+Sans+Condensed:300,700' rel="stylesheet" type='text/css'>
+
+<script type="text/javascript" src="static/style/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="static/style/js/jquery.masonry.min.js"></script>
+<script type="text/javascript" src="static/style/js/jquery.backstretch.min.js"></script>
+<script type="text/javascript">
+	$.backstretch("static/style/images/bg/9.jpg");
+</script>
+<script type="text/javascript" src="static/style/js/scripts.js"></script>
+</head>
+<body>
+
+<div class="topline" ></div>
+<div class="scanlines"></div>
+
+<!-- Begin Header -->
+<div class="header-wrapper opacity">
+	<div class="header">
+		<!-- Begin Logo -->
+		<div class="logo">
+				<img src="static/style/images/logo.png" alt="" />
+	    </div>
+		<!-- End Logo -->
+		<!-- Begin Menu -->
+		<div id="menu-wrapper">
+			
+			</div>
+		</div>
+		<div class="clear"></div>
+		<!-- End Menu -->
+	</div>
+</div>
+<!-- End Header -->
+
+<!-- Begin Wrapper -->
+<div class="wrapper"><!-- Begin Intro -->
+<div class="intro">... начало никогда не находится там, где мы рассчитываем его найти.</div>
+
+<!-- Begin Container -->
+<div class="box">
+
+		<h1 class="title">Авторизация</h1>
+		
+		<div class="one-third">
+			<div class="outer none"><span class="inset"><img src="static/style/images/av.png" alt="Hello" title="Hello" /></span></div>
+		</div>
+		
+		<div class="two-third last">
+			<h2>Здравствуй!</h2>	
+			<h4> Введи свой логин и пароль, или перейди на страницу регистрации, чтобы войти на сайт</h4>
+			<br>
+				<form action="" method="post">
+				<label for="login">Ваш логин (email):</label>
+				<br><input  name="login" type="text" id="login" value="{{login}}">
+				<br><label for="password">Пароль:</label>
+				<br><input type="password" name="password" id="password" value="{{password}}">
+				<br>
+				<br><input type="submit" value="Войти">
+				{% if message=="Incorrect" %}
+				<br><p>Ошибка в логине/пароле</p>
+				{% endif %}
+				<br><p align=center><a href="/register">Зарегистрироваться</a><p>
+			</form>
+		</div>
+		<div class="clear"></div>
+
+</div>
+<!-- End Container -->
+
+</div>
+<!-- End Wrapper -->
+
+</body>
+</html>
