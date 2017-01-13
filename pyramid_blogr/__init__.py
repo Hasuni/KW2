@@ -18,14 +18,11 @@ class MyFactory(object):
 def main(global_config, **settings):
     """ This function returns a Pyramid WSGI application.
     """
-    Base.metadata.create_all()
-    
-    authn_policy = AuthTktAuthenticationPolicy('seekrit', hashalg='sha512')
-    authz_policy = ACLAuthorizationPolicy()
-    config = Configurator(settings=settings, session_factory=my_s_f, root_factory=MyFactory)
-    config.set_authentication_policy(authn_policy)
-    config.set_authorization_policy(authz_policy)
-    config.include('pyramid_jinja2')
+    authentication_policy = AuthTktAuthenticationPolicy('somesecret')
+    authorization_policy = ACLAuthorizationPolicy()
+    config = Configurator(settings=settings,
+                          authentication_policy=authentication_policy,
+                          authorization_policy=authorization_policy)
 
     engine = engine_from_config(settings, 'sqlalchemy.')
     DBSession.configure(bind=engine)
